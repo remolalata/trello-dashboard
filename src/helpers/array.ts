@@ -94,10 +94,6 @@ export const getAllTask = (checkLists: any, variant: "incomplete" | "complete" =
 
 export const getBarChartData = (lists: any, cards: any, checkLists: any) => {
 
-    // console.log(lists)
-    // console.log(cards)
-    // console.log(checkLists)
-
     let incomplete = [0, 0, 0, 0, 0];
     let complete = [0, 0, 0, 0, 0];
 
