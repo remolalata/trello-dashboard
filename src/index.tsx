@@ -1,15 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { StyledEngineProvider } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
 import './index.css';
+import { Provider } from 'react-redux';
+import store from './store';
+import { AppProvider } from './store/AppContext';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from "./reportWebVitals";
+
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <StyledEngineProvider injectFirst>
+      <CssBaseline />
+      <Provider store={store}>
+        <AppProvider>
+          <App />
+        </AppProvider>
+      </Provider>,
+    </StyledEngineProvider>
+    
   </React.StrictMode>
 );
 
