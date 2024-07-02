@@ -68,7 +68,7 @@ export const getAllChecklistItems = (checkLists: any, lists: any, cards: any, va
     }
 }
 
-export const getAllTask = (checkLists: any, variant: "incomplete" | "complete" = "incomplete") => {
+export const getAllTask = (checkLists: any, variant: "incomplete" | "complete" | "all" = "incomplete") => {
     let tasks: any = [];
 
     try {
@@ -78,6 +78,13 @@ export const getAllTask = (checkLists: any, variant: "incomplete" | "complete" =
                     for (const checkItem of checkList.checkItems) {
                         if (checkItem.state === variant) {
                             tasks.push(checkItem);
+                        }
+
+                        if (variant === "all") {
+                            tasks.push({
+                                ...checkItem,
+                                idCard: checkList.idCard
+                            });
                         }
                     }
                 }

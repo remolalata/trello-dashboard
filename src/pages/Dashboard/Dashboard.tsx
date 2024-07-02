@@ -7,6 +7,7 @@ import CheckListsPieChart from "../../components/CheckListsPieChart/CheckListsPi
 import CheckListsBarChart from "../../components/CheckListsBarChart/CheckListsBarChart";
 import ActivityTimeline from "../../components/ActivityTimeline/ActivityTimeline";
 import CardCalendar from "../../components/CardCalendar/CardCalendar";
+import CheckboxTasks from "../../components/CheckboxTasks/CheckboxTasks";
 
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -30,8 +31,8 @@ const Dashboard: React.FC = () => {
                 <Lists />
             </div>
 
-            <Grid container spacing={2} className="mt-8">
-                <Grid item xs={6}>
+            <Grid container spacing={{ xs: 0, lg: 2 }} className="mt-8">
+                <Grid item xs={12} lg={6} className="mb-8 lg:mb-0">
                     <Paper className="p-6">
                         <div className="flex items-center justify-between mb-4">
                             <h3 className="font-bold text-xl">{pieChartVariant === "incomplete" ? "Open" : "Closed"} Checklist Tasks</h3>
@@ -50,7 +51,7 @@ const Dashboard: React.FC = () => {
                         </div>
                     </Paper>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} lg={6}>
                     <Paper className="p-6">
                         <div className="flex items-center justify-between mb-4">
                             <h3 className="font-bold text-xl">Checklist Tasks</h3>
@@ -66,8 +67,8 @@ const Dashboard: React.FC = () => {
                 </Grid>
             </Grid>
 
-            <Grid container spacing={2} className="my-8">
-                <Grid item xs={6}>
+            <Grid container spacing={{ xs: 0, lg: 2 }} className="my-8">
+                <Grid item xs={12} lg={6} className="mb-8 lg:mb-0">
                     <Paper className="p-6">
                         <h3 className="font-bold text-xl mb-4">Activity on board</h3>
                         <div className="border-t border-dashed border-gray-200">
@@ -76,9 +77,9 @@ const Dashboard: React.FC = () => {
                     </Paper>
                 </Grid>
 
-                <Grid item xs={6}>
+                <Grid item xs={12} lg={6}>
                     <Paper className="p-6">
-                    <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center justify-between mb-4">
                             <h3 className="font-bold text-xl">Tasks for this month</h3>
                             <div className="flex gap-x-2">
                                 <Link to="calendar" className="text-xs font-medium no-underline text-blue-600">View all</Link>
@@ -86,6 +87,17 @@ const Dashboard: React.FC = () => {
                         </div>
                         <div className="calendar-widget border-t border-dashed border-gray-200">
                             <CardCalendar />
+                        </div>
+                    </Paper>
+                </Grid>
+            </Grid>
+
+            <Grid container spacing={{ xs: 0, lg: 2 }} className="my-8">
+                <Grid item xs={12} lg={6} className="mb-8 lg:mb-0">
+                    <Paper className="p-6">
+                        <h3 className="font-bold text-xl mb-4">Current checklist</h3>
+                        <div className="border-t border-dashed border-gray-200">
+                            <CheckboxTasks/>
                         </div>
                     </Paper>
                 </Grid>

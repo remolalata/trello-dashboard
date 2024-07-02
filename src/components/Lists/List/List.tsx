@@ -19,7 +19,7 @@ const List: React.FC<any> = ({ list }) => {
     return (
         <>
             {list &&
-                <Paper square={false} className="flex items-center gap-x-3 px-6 py-10 w-1/5">
+                <Paper square={false} className="flex items-center gap-x-3 px-6 py-10 w-full md:w-1/2 lg:w-1/5">
                     <div>
                         {list.name === "Concepts" ? (
                             <TipsAndUpdatesTwoToneIcon className="text-4xl" />

@@ -49,3 +49,7 @@ html, body, #root {
 .calendar-widget .fc-toolbar-chunk {
   @apply hidden;
 }
+
+.MuiFormControlLabel-label {
+  @apply text-sm
+}
