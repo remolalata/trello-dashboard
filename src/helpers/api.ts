@@ -1,4 +1,4 @@
-import { GET_MY_ACTIONS, GET_MY_CARDS, GET_MY_CHECKLISTS, GET_MY_LISTS } from "../constants/apiEndpoints";
+import { GET_MY_ACTIONS, GET_MY_CARDS, GET_MY_CHECKLISTS, GET_MY_LISTS, UPDATE_MY_CHECLIST } from "../constants/apiEndpoints";
 
 type UseFetchResponse<T> = {
     data: T | null;
@@ -29,6 +29,22 @@ export const fetchData = async <T,>(url: string, options?: RequestInit): Promise
 
     return { data, error, loading };
 };
+
+export const updateChecklistEndpoint = (url: any, cardId: any, checkItemId: any) => {
+    return url.replace("{cardId}", cardId).replace("{checkItemId}", checkItemId);
+}
+
+export const updateData = async (cardId: string, checkItemId: string, state: 'complete' | 'incomplete') => {
+    const endpoint = updateChecklistEndpoint(UPDATE_MY_CHECLIST, cardId, checkItemId);
+
+    await fetch(endpoint, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ state }),
+    });
+}
 
 export const updateBoardIDEndpoint = (url: string, value: string) => {
     return url.replace("{boardId}", value);

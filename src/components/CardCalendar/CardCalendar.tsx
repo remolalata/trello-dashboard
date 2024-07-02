@@ -47,6 +47,7 @@ const CardCalendar: React.FC = () => {
                 initialView="dayGridMonth"
                 events={events}
                 eventClick={(mouseEnterInfo) => handleEventClick(mouseEnterInfo)}
+                handleWindowResize={true}
             />
 
             <Modal open={showModal} handleClose={handleClose} title={modalTitle} />

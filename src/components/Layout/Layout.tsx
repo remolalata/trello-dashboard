@@ -86,16 +86,16 @@ const Layout: React.FC = () => {
     }, [state.userData.data]);
 
     // useEffect(() => {
-    //     console.log(state.boardData)
+    //     console.log(state)
     // }, [state])
 
     return (
         <Box className="h-full">
-            <Grid container spacing={2} className="h-full">
-                <Grid item xs={2} className="border-r border-dashed border-gray-200">
+            <Grid container spacing={{ xs: 0, lg: 2}} className="h-full">
+                <Grid item xs={2} className="border-r border-dashed border-gray-200 hidden lg:block">
                     <Sidebar />
                 </Grid>
-                <Grid item xs={10} className="px-12">
+                <Grid item xs={12} lg={10} className="px-4 lg:px-12">
                     <Navbar />
                     <main>
                         {
